@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div id="content" style="text-align: center">
+    <span>抽奖范围：1-</span><input id="allnumber" type="text" value="50">
+    <div>
+
+        <select id="select">
+
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5" selected>5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+    <h3 id="btn" style="background: pink;cursor: pointer" onclick="start()">点击抽奖</h3>
+
+    <h3>中奖号码:</h3><h2 id="lucknumber" style="color: red"></h2>
+</div>
+<script>
+    var btn = document.getElementById("btn");
+    var allnumber = document.getElementById("allnumber");
+    var sel = document.getElementById('select');
+	var aaa = document.getElementById('lucknumber');
+	var luckarr=[];
+    function start () {
+		luckarr.length =0;
+		for(var i=0;i<sel.value;i++){
+			var luck  = Math.ceil(Math.random()*(allnumber.value));
+			luckarr.push(luck);
+		}
+		unique(luckarr);
+		if(luckarr.length<5) start();
+		console.warn(luckarr);
+		aaa.innerHTML =luckarr
+    }
+	function unique(data) {
+		var data = data||[];
+		var a={};
+		for(var i = 0;i<data.length;i++){
+			var v=data[i];
+			if(typeof(a[v]=='undefined')){
+				a[v]=1;
+			}
+		};
+		data.length=0;
+		for(var i in a){
+			data[data.length]=i;
+		}
+		return data;
+	}
+
+</script>
+</body>
+
+</html>

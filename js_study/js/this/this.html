@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../bootstrap.css">
+</head>
+<body>
+<div class="container">
+<pre>
+<h3>1、纯粹的函数调用(全局性调用)，this代表global</h3>
+    var x = 1;
+    function test(){
+        alert(this.x = 2);
+        var a = this;
+        alert(a); //[object Window]
+    }
+    test(); // 1
+<h3>2、作为对象方法的调用，this就指这个上级对象。</h3>
+    function test(){
+        alert(this.x);
+        var a = this;
+        alert(a);//[object object]
+    }
+    var o = {};
+    o.x = 1;
+    o.m = test;
+    o.m(); // 1
+<h3>3.作为构造函数调用,this就指这个新对象。</h3>
+    var x = 2;
+    function test(){
+        this.x = 1;
+    }
+    var o = new test();
+    alert(o.x); //1;
+    alert(x); //2
+</pre>
+
+</div>
+<script>
+//    var x = 1;
+//    function test(){
+//        alert(this.x = 2);
+////        var a = this;
+////        alert(a); //[object Window]
+//    }
+//    test(); // 1
+//    function test(){
+//        alert(this.x);
+//        var a = this;
+//        alert(a); //[object object]
+//    }
+//    var o = {};
+//    o.x = 1;
+//    o.m = test;
+//    o.m(); // 1
+        var x = 2;
+        function test(){
+            this.x = 1;
+            var a =this;
+            alert(a);   //[object object]
+        }
+        var o = new test();
+        alert(o.x); //1;
+        alert(x); //2
+</script>
+<script src=""></script>
+</body>
+
+</html>

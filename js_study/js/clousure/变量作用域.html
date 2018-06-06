@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../bootstrap.css">
+</head>
+<body>
+<div class="container">
+<pre>
+    <h4>
+        var scope = "global";
+        function checkscope() {
+            var  scope = "local"; //写全局变量可以不加var ,局部变量如果不加var，其scope会覆盖全局变量，优先级高于全局变量
+            return scope;
+
+        }
+        checkscope();
+    </h4>
+</pre>
+
+</div>
+<script>
+    var scope = "global";
+    function checkscope() {
+        var  scope = "local";
+        return scope;
+
+    }
+    alert(checkscope());
+    alert(scope)
+
+</script>
+<script src=""></script>
+</body>
+
+</html>

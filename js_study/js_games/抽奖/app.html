@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div class="container" ng-controller="myCtrl">
+<div class="content text-center">
+    <div class="wrapper">
+        <h4>参与抽奖人数：</h4><input type="text" ng-model="allnumber" value="{{allnumber}}">
+        <h4>中奖人数</h4>
+        <select ng-model="number" select="selected" ng-options="num for num in numberarr">
+        </select>
+        <button class="btn btn-info" ng-click="start()">点击抽奖</button>
+        <h3>中奖列表</h3>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="li in luckarr">第{{$index+1}}位中奖号码：{{li}}</li>
+            </ul>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+</div>
+<script src="angular.js"></script>
+<script src="controller.js"></script>
+</body>
+
+</html>
